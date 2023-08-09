@@ -1,0 +1,33 @@
+
+quest intro {
+	talkto santa {
+		santa: "Ho ho hello there, Mittens!"
+		santa: "Thank you for coming, I'm so glad you could make it."
+		santa: "I deperately need some help around here."
+		santa: "You really can't get the staff these days!"
+		you:  "No problem Santa, how can I help?"
+		santa: "First things first, Lewis could use some help with the choir."
+		santa: "I think you're going to love what they have come up with this year."
+		santa: "You can find lewis and the choir in the Studio."
+		santa: "But there are also many Elves all around the Grotto, in need of help."
+		santa: "If you are so inclined..."
+		santa: "You could think of the Elves like side quests, Ho ho ho!"
+		you: "Sounds good Santa, I'll get right on it!"
+		santa: "I'm counting on you Mittens, Christmas may be saved yet!"
+	}
+	goto studio
+	talkto lewis {
+		...
+	}
+	play choirMinigame
+	start writingMusic
+}
+
+quest writingMusic {
+	...
+}
+
+quest workshop {
+	talkto chief
+	play workshopMinigame
+}
