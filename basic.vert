@@ -1,10 +1,10 @@
-#version 120
+#version 130
 
 uniform vec2 world_position;
 //uniform vec screen_size;
-varying out vec2 screen_pos;
-varying out vec2 world_pos;
-varying out vec2 tex_coord;
+out vec2 screen_pos;
+out vec2 world_pos;
+out vec2 tex_coord;
 
 void main() {
 	screen_pos = (gl_ProjectionMatrix * gl_ModelViewMatrix * vec4(gl_Vertex.xy+world_position, gl_Vertex.z, gl_Vertex.w)).xy;

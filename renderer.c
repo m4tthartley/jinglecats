@@ -1,5 +1,5 @@
 
-#include "../math.c"
+#include "../core/math.c"
 
 typedef enum {
 	R_JOB_SPRITE,
@@ -31,9 +31,9 @@ typedef struct {
 
 #define MAX_JOBS (1024*10)
 r_job jobs[MAX_JOBS];
-static int numJobs = 0;
+static int numJobs = 0; // TODO why is this static?
 
-inline void rPushJob(r_job job) {
+void rPushJob(r_job job) {
 	if(numJobs < MAX_JOBS) {
 		jobs[numJobs++] = job;
 	}

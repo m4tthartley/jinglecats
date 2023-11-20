@@ -435,7 +435,14 @@ int loadGameCode(void* memory) {
 	return 0;
 }
 
-int main() {
+// int main()
+int WinMain(
+	HINSTANCE hInstance,
+	HINSTANCE hPrevInstance,
+	LPSTR     lpCmdLine,
+	int       nShowCmd
+)
+{
 	LARGE_INTEGER _freq;
 	LARGE_INTEGER st;
 	QueryPerformanceFrequency(&_freq);

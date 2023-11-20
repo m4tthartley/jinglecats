@@ -3,7 +3,7 @@
 uniform vec2 quad_size;
 uniform vec2 quad_center;
 uniform int hot;
-uniform int active;
+uniform int widgetActive;
 uniform int bevel;
 uniform int border;
 uniform int uBackground;
@@ -87,7 +87,7 @@ void main() {
 	}
 	
 	if(bevel==1) {
-		if(active==1) {
+		if(widgetActive==1) {
 			if(diff.x > (quad_size.x/2 - 0.22f) ||
 			   diff.y > (quad_size.y/2 - 0.22f) ||
 			   diff.x < -(quad_size.x/2 - 0.22f) ||

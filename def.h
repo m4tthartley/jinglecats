@@ -27,8 +27,8 @@ todo
 #define GIGABYTES(n) (n*1024*1024*1024)
 
 //#define _MATH_DECLARATIONS
-#include "../math.c"
-#include "../memory.c"
+#include "../core/math.c"
+#include "../core/memory.c"
 
 typedef struct {
 	GLuint handle;
@@ -43,10 +43,10 @@ typedef struct {
 } r_sprite;
 
 #define _UI_HEADER
-#include "../ui.c"
+#include "../core/ui.c"
 
 //#define _GFX_HEADER
-#include "../gfx.c"
+#include "../core/gfx.c"
 
 #include "quests.c"
 
@@ -63,7 +63,7 @@ typedef unsigned __int32  u32;
 typedef __int16  s16;
 typedef unsigned __int16  u16;
 typedef u32 b32;
-typedef char byte;
+typedef unsigned char byte; // TODO remove all duplications
 #define TRUE 1
 #define FALSE 0
 
@@ -289,10 +289,10 @@ vec4 PURPLE = {1.0f, 0.4f, 1.2f, 1};
 
 #include "renderer.c"
 #define _UI_IMPLEMENTATION
-#include "../ui.c"
+#include "../core/ui.c"
 
-#define GAMELOOP_PROC(name) void name(win_state* win, game_state* game, float dt)
-#define GAMESTART_PROC(name) void name(win_state* win, game_state* game)
+#define GAMELOOP_PROC(name) __declspec(dllexport) void name(win_state* win, game_state* game, float dt)
+#define GAMESTART_PROC(name) __declspec(dllexport) void name(win_state* win, game_state* game)
 #define SETUP_EDITOR_PROC(name) void name(HWND window)
 typedef GAMESTART_PROC(gamestart_proc);
 typedef GAMELOOP_PROC(gameloop_proc);

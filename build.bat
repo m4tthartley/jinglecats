@@ -1,5 +1,8 @@
 @echo off
 
+sh ./build.sh
+exit 0
+
 set opts=-FC -nologo -Zi -W2
 set code=%cd%
 pushd build

@@ -1,12 +1,12 @@
-#version 120
+#version 130
 
 uniform sampler2D texture0;
 uniform float time;
 uniform vec2 camera;
 uniform vec2 scale;
 
-varying in vec2 screen_pos;
-varying in vec2 world_pos;
+in vec2 screen_pos;
+in vec2 world_pos;
 
 // from Inigo Quilez
 float hash(float n) {

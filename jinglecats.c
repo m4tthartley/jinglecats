@@ -274,7 +274,7 @@ GAMESTART_PROC(gamestart) {
 		game->ui.widgetState.address = pushMemory(&game->memory, game->ui.widgetState.size);
 		game->ui.msgMemory.size = KILOBYTES(10);
 		game->ui.msgMemory.address = pushMemory(&game->memory, game->ui.msgMemory.size);
-		game->ui.transient.size = KILOBYTES(10);
+		game->ui.transient.size = KILOBYTES(30);
 		game->ui.transient.address = pushMemory(&game->memory, game->ui.transient.size);
 		
 		game->generalMemory.size = KILOBYTES(10);
@@ -1089,7 +1089,7 @@ GAMELOOP_PROC(gameloop) {
 		
 		gfx_shader* shader = gfx->shaders;
 		while(shader) {
-			int offset = ((byte*)shader-gfx->memory);
+			int offset = ((byte*)shader-(byte*)gfx->memory);
 			int size = align(sizeof(gfx_shader) + shader->path_size + shader->code_size, 64);
 			int w = size;
 			//glColor3f((float)((uint64_t)shader % 10) / 10.0f, 1, 0);
@@ -1115,7 +1115,7 @@ GAMELOOP_PROC(gameloop) {
 		
 		free_block* free = gfx->freeBlocks;
 		while(free) {
-			int offset = ((byte*)free-gfx->memory);
+			int offset = ((byte*)free-(byte*)gfx->memory);
 			int w = free->size;
 			glColor3f(0.2f, 0.2f, 0.2f);
 			for(int i=offset/64; i<((offset+w)/64); ++i) {
